@@ -168,8 +168,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GiftIdeaController.cs" />
+    <Compile Include="Controllers\GiftReminderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RecipientController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -234,9 +237,13 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\GiftReminder\Create.cshtml" />
+    <Content Include="Views\Recipient\Index.cshtml" />
+    <Content Include="Views\Recipient\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\GiftIdea\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -255,6 +262,14 @@
     <ProjectReference Include="..\HolidayHelper.Data\HolidayHelper.Data.csproj">
       <Project>{8A5D7F6F-64AE-4F46-BA69-E309E5B6E428}</Project>
       <Name>HolidayHelper.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HolidayHelper.Models\HolidayHelper.Models.csproj">
+      <Project>{D62D79B4-0A4F-435C-BD37-050AE9EADCBF}</Project>
+      <Name>HolidayHelper.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HolidayHelper.Services\HolidayHelper.Services.csproj">
+      <Project>{AC053D43-A8F1-419B-863B-89117542E69E}</Project>
+      <Name>HolidayHelper.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

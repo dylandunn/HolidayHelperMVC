@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,7 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GiftReminderModels\CreateGiftReminder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecipientModels\RecipientCreate.cs" />
+    <Compile Include="RecipientModels\RecipientListItem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HolidayHelper.Data\HolidayHelper.Data.csproj">
+      <Project>{8A5D7F6F-64AE-4F46-BA69-E309E5B6E428}</Project>
+      <Name>HolidayHelper.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
