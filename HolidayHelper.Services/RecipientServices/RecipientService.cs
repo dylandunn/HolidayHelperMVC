@@ -57,6 +57,57 @@ namespace HolidayHelper.Services.RecipientServices
                 return query.ToArray();
             }
         }
+        public RecipientDetail GetRecipientById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Recipients
+                        .SingleOrDefault(p => p.RecipientId == id && p.OwnerId == _userId);
+                return
+                    new RecipientDetail
+                    {
+                        RecipientId = entity.RecipientId,
+                        Relation = entity.Relation,
+                        Name = entity.Name,
+                        Interests = entity.Interests,
+                        Avoid = entity.Avoid,
+                        BirthDay = entity.BirthDay
+                    };
+            }
+        }
+        public bool UpdateRecipient(RecipientEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Recipients
+                        .SingleOrDefault(p => p.RecipientId == model.RecipientId && p.OwnerId == _userId);
+                entity.Name = model.Name;
+                entity.Interests = model.Interests;
+                entity.Avoid = model.Avoid;
+                entity.Relation = entity.Relation;
+                entity.BirthDay = entity.BirthDay;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteRecipient(int recipientId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Recipients
+                        .SingleOrDefault(p => p.RecipientId == recipientId && p.OwnerId == _userId);
+                ctx.Recipients.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
     }
 }

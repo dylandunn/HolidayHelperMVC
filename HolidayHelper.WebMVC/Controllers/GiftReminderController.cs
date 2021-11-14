@@ -23,13 +23,14 @@ namespace HolidayHelper.WebMVC.Controllers
         {
             return View();
         }
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CreateGiftReminder model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var giftReminder = new GiftReminder();
-               // giftReminder.GiftIdea = new List<GiftIdea>();
+                // giftReminder.GiftIdea = new List<GiftIdea>();
                 var recipient = _db.Recipients.Find(model.RecipientId);
                 if(recipient != null)
                 {
@@ -55,7 +56,9 @@ namespace HolidayHelper.WebMVC.Controllers
                 _db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            // Add view models
+            ViewBag.RecipientId = new SelectList(_db.Recipients, "RecipientId", "Name", model.RecipientId);
+            ViewBag.GiftIdeaId = new SelectList(_db.GiftIdeas, "GiftIdeaId", "Product", model.GiftIdeaIds);
+
             return View(model);
         }
     }

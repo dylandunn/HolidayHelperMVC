@@ -240,10 +240,18 @@
     <Content Include="Views\GiftReminder\Create.cshtml" />
     <Content Include="Views\Recipient\Index.cshtml" />
     <Content Include="Views\Recipient\Create.cshtml" />
+    <Content Include="Views\Recipient\Details.cshtml" />
+    <Content Include="Views\Recipient\Edit.cshtml" />
+    <Content Include="Views\Recipient\Delete.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\GiftIdea\Index.cshtml" />
+    <Content Include="Views\GiftIdea\Create.cshtml" />
+    <Content Include="Views\GiftIdea\Details.cshtml" />
+    <Content Include="Views\GiftIdea\Edit.cshtml" />
+    <Content Include="Views\GiftIdea\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\GiftIdea\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
