@@ -52,8 +52,8 @@ namespace HolidayHelper.Services.GiftReminderServices
                         GiftReminderId = entity.GiftReminderId,
                         RecipientId = entity.RecipientId,
                         GiftIdeas = entity.GiftIdeas,
-                        Occasion = entity.Occasion,
-                        GiftNeededBy = entity.GiftNeededBy,
+                       Occasion = entity.Occasion,
+                       GiftNeededBy = entity.GiftNeededBy,
                     };
             }
         }
@@ -66,8 +66,8 @@ namespace HolidayHelper.Services.GiftReminderServices
                     ctx.
                     GiftReminders
                     .SingleOrDefault(g => g.GiftReminderId == model.GiftReminderId && g.OwnerId == _userId);
-                entity.Occasion = model.Occasion;
-                entity.GiftNeededBy = model.GiftNeededBy;
+               // entity.Occasion = model.Occasion;
+               // entity.GiftNeededBy = model.GiftNeededBy;
 
                 return ctx.SaveChanges() == 1;
             }

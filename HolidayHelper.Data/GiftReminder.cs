@@ -20,7 +20,7 @@ namespace HolidayHelper.Data
         public string Occasion { get; set; }
         public DateTime? CreatedDate  { get; set; }
         public DateTime GiftNeededBy { get; set; }
-     //   public DateTime DaysLeftToBuyGift { get; set; }
+      //  public DateTime DaysLeftToBuyGift { get; set; }
 
     }
 }

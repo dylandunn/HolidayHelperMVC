@@ -77,7 +77,7 @@ namespace HolidayHelper.Services.RecipientServices
                     };
             }
         }
-        public bool UpdateRecipient(RecipientEdit model)
+        public bool UpdateRecipient( RecipientEdit model)
         {
             using(var ctx = new ApplicationDbContext())
             {
