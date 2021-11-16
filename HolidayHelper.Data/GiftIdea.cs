@@ -13,12 +13,11 @@ namespace HolidayHelper.Data
         public Guid OwnerId { get; set; }
         [Key]
         public int GiftIdeaId { get; set; }
-      //  public int RecipientId { get; set; }
-      //  public virtual Recipient Recipient { get; set; }
         [Required]
         public string Product { get; set; }
         public double Price { get; set; }
         public string Location { get; set; }
         public string WebsiteLink { get; set; }
+        public virtual ICollection<GiftReminder> GiftReminders { get; set; }
     }
 }

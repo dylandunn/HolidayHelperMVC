@@ -10,15 +10,17 @@ namespace HolidayHelper.Data
 {
     public class GiftReminder
     {
+        public Guid OwnerId { get; set; }
         [Key]
         public int GiftReminderId { get; set; }
         [ForeignKey(nameof(Recipient))]
         public int RecipientId { get; set; }
         public virtual Recipient Recipient { get; set; }
-        public virtual ICollection<GiftIdea> GiftIdea { get; set; } = new List<GiftIdea>();
+        public virtual ICollection<GiftIdea> GiftIdeas { get; set; } = new List<GiftIdea>();
         public string Occasion { get; set; }
-        public DateTime CreatedDate  { get; set; }
+        public DateTime? CreatedDate  { get; set; }
         public DateTime GiftNeededBy { get; set; }
+     //   public DateTime DaysLeftToBuyGift { get; set; }
 
     }
 }

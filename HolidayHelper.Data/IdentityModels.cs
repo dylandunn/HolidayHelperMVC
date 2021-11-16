@@ -46,6 +46,10 @@ namespace HolidayHelper.Data
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
+
+            modelBuilder.Entity<GiftReminder>()
+                .HasMany(t => t.GiftIdeas)
+                .WithMany(g => g.GiftReminders);
         }
     }
 

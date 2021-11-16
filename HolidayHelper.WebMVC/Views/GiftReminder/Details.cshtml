@@ -1,0 +1,58 @@
+﻿@model HolidayHelper.Models.GiftReminderModels.GiftReminderDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>GiftReminderDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GiftReminderId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiftReminderId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecipientId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecipientId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Occasion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Occasion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiftNeededBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiftNeededBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DaysLeftToBuyGift)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DaysLeftToBuyGift)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

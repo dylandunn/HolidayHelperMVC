@@ -14,7 +14,6 @@ namespace HolidayHelper.Models.GiftReminderModels
         [Required]
         public IEnumerable<int> GiftIdeaIds { get; set; } = new List<int>();
         public string Occasion { get; set; }
-        public DateTimeOffset CreatedDate { get; set; }
         public DateTime GiftNeededBy { get; set; }
     }
 }
