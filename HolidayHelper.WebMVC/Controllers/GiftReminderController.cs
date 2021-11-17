@@ -1,6 +1,7 @@
 ﻿using HolidayHelper.Data;
 using HolidayHelper.Models.GiftReminderModels;
 using HolidayHelper.Services.GiftReminderServices;
+using HolidayHelper.Services.RecipientServices;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace HolidayHelper.WebMVC.Controllers
     [Authorize]
     public class GiftReminderController : Controller
     {
+        
         private ApplicationDbContext _db = new ApplicationDbContext();
         // GET: GiftReminder
         public ActionResult Index()
@@ -31,12 +33,14 @@ namespace HolidayHelper.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateGiftReminder model)
         {
-            if (ModelState.IsValid)
+            var svc = CreateGiftReminderService();
+            if (svc.CreateGiftReminder(model))
             {
                 var giftReminder = new GiftReminder();
                 giftReminder.GiftIdeas = new List<GiftIdea>();
 
                 var recipient = _db.Recipients.Find(model.RecipientId);
+                //var recipient = service.GetRecipientById(model.RecipientId);
                 if (recipient != null)
                 {
                     giftReminder.RecipientId = recipient.RecipientId;
@@ -60,15 +64,14 @@ namespace HolidayHelper.WebMVC.Controllers
                         return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                     }
                 }
-                giftReminder.Occasion = model.Occasion;
-                giftReminder.GiftNeededBy = model.GiftNeededBy;
-                giftReminder.CreatedDate = DateTime.Now;
-                //  giftReminder.DaysLeftToBuyGift = DateTime.Now.Subtract(model.GiftNeededBy);
-                _db.GiftReminders.Add(giftReminder);
-                _db.SaveChanges();
+                TempData["SaveResult"] = "Reminder was created";
 
                 return RedirectToAction("Index");
             }
+            ModelState.AddModelError("", "Reminder was not created");
+            return View(model);
+
+            
             ViewBag.RecipientId = new SelectList(_db.Recipients, "RecipientId", "Name", model.RecipientId);
             ViewBag.GiftIdeas = new SelectList(_db.GiftIdeas, "GiftIdeaId", "Product", model.GiftIdeaIds);
 

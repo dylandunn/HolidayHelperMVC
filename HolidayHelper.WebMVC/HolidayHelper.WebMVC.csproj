@@ -198,7 +198,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\img\couple.png.jpg" />
+    <Content Include="Content\img\gifts.png.jpg" />
     <Content Include="Content\img\HHLogo.png" />
+    <Content Include="Content\img\holiday.png.jpg" />
     <Content Include="Content\img\holidayBackground.png" />
     <Content Include="Content\img\NavCover2.jpg" />
     <Content Include="favicon.ico" />

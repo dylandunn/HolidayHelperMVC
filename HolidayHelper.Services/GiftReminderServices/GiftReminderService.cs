@@ -17,6 +17,23 @@ namespace HolidayHelper.Services.GiftReminderServices
             _userId = userId;
         }
 
+        public bool CreateGiftReminder(CreateGiftReminder model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    new GiftReminder()
+                    {
+                        OwnerId = _userId,
+                        RecipientId = model.RecipientId,
+                        Occasion = model.Occasion,
+                        GiftNeededBy = model.GiftNeededBy
+                    };
+                ctx.GiftReminders.Add(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
         public IEnumerable<GiftReminderListItem> GetGiftReminders()
         {
             using (var ctx = new ApplicationDbContext())

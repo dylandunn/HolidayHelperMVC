@@ -1,9 +1,41 @@
 ﻿body {
-    padding-top: 0px;
-    padding-bottom: 15px;
-    padding-left: 0px;
-    padding-right: 0px;
+    margin: 0;
+    font-family: 'Franklin Gothic';
+    font-size: 17px;
+    font-style: oblique;
+    color: #E60B09;
+    line-height: 1.6;
 }
+
+#showcase{
+    background-image:url('./img/couple.png.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    padding: 0px 20px;
+}
+
+#showcase h1 {
+    font-size: 50px;
+    line-height: 1.2;
+
+}
+
+#showcase p {
+    font-size: 20px;
+    color: green
+}
+
+#showcase .button:hover {
+  color: snow;
+}
+
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -45,5 +77,8 @@ footer {
     border: 1px hidden #ffff;
     align-content: center;
    
+}
+.banner {
+
 }
 
