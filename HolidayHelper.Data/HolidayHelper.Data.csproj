@@ -57,53 +57,9 @@
     <Compile Include="GiftIdea.cs" />
     <Compile Include="GiftReminder.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202111130732371_MandRService.cs" />
-    <Compile Include="Migrations\202111130732371_MandRService.Designer.cs">
-      <DependentUpon>202111130732371_MandRService.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111140419505_ChangedGIPOCOs.cs" />
-    <Compile Include="Migrations\202111140419505_ChangedGIPOCOs.Designer.cs">
-      <DependentUpon>202111140419505_ChangedGIPOCOs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111140705109_AllPocosUpToDate.cs" />
-    <Compile Include="Migrations\202111140705109_AllPocosUpToDate.Designer.cs">
-      <DependentUpon>202111140705109_AllPocosUpToDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111150022427_UpdatedDTBug.cs" />
-    <Compile Include="Migrations\202111150022427_UpdatedDTBug.Designer.cs">
-      <DependentUpon>202111150022427_UpdatedDTBug.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111150040295_UpdatedDTBAgain.cs" />
-    <Compile Include="Migrations\202111150040295_UpdatedDTBAgain.Designer.cs">
-      <DependentUpon>202111150040295_UpdatedDTBAgain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111150147475_UpdatedDTBA2.cs" />
-    <Compile Include="Migrations\202111150147475_UpdatedDTBA2.Designer.cs">
-      <DependentUpon>202111150147475_UpdatedDTBA2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111150216349_UpdatedDTBA25.cs" />
-    <Compile Include="Migrations\202111150216349_UpdatedDTBA25.Designer.cs">
-      <DependentUpon>202111150216349_UpdatedDTBA25.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111150311048_UpdatedDTBA253.cs" />
-    <Compile Include="Migrations\202111150311048_UpdatedDTBA253.Designer.cs">
-      <DependentUpon>202111150311048_UpdatedDTBA253.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111150554413_FluentAPI.cs" />
-    <Compile Include="Migrations\202111150554413_FluentAPI.Designer.cs">
-      <DependentUpon>202111150554413_FluentAPI.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111160645396_Update2739821.cs" />
-    <Compile Include="Migrations\202111160645396_Update2739821.Designer.cs">
-      <DependentUpon>202111160645396_Update2739821.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111161436538_UpdatedPoco2311.cs" />
-    <Compile Include="Migrations\202111161436538_UpdatedPoco2311.Designer.cs">
-      <DependentUpon>202111161436538_UpdatedPoco2311.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111161450298_UpdatedPoco231197.cs" />
-    <Compile Include="Migrations\202111161450298_UpdatedPoco231197.Designer.cs">
-      <DependentUpon>202111161450298_UpdatedPoco231197.cs</DependentUpon>
+    <Compile Include="Migrations\202111170248282_InitCreate.cs" />
+    <Compile Include="Migrations\202111170248282_InitCreate.Designer.cs">
+      <DependentUpon>202111170248282_InitCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,44 +92,6 @@
     <None Include="Scripts\bootstrap.min.js.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111130732371_MandRService.resx">
-      <DependentUpon>202111130732371_MandRService.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111140419505_ChangedGIPOCOs.resx">
-      <DependentUpon>202111140419505_ChangedGIPOCOs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111140705109_AllPocosUpToDate.resx">
-      <DependentUpon>202111140705109_AllPocosUpToDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111150022427_UpdatedDTBug.resx">
-      <DependentUpon>202111150022427_UpdatedDTBug.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111150040295_UpdatedDTBAgain.resx">
-      <DependentUpon>202111150040295_UpdatedDTBAgain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111150147475_UpdatedDTBA2.resx">
-      <DependentUpon>202111150147475_UpdatedDTBA2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111150216349_UpdatedDTBA25.resx">
-      <DependentUpon>202111150216349_UpdatedDTBA25.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111150311048_UpdatedDTBA253.resx">
-      <DependentUpon>202111150311048_UpdatedDTBA253.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111150554413_FluentAPI.resx">
-      <DependentUpon>202111150554413_FluentAPI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111160645396_Update2739821.resx">
-      <DependentUpon>202111160645396_Update2739821.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111161436538_UpdatedPoco2311.resx">
-      <DependentUpon>202111161436538_UpdatedPoco2311.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111161450298_UpdatedPoco231197.resx">
-      <DependentUpon>202111161450298_UpdatedPoco231197.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -196,6 +114,11 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202111170248282_InitCreate.resx">
+      <DependentUpon>202111170248282_InitCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

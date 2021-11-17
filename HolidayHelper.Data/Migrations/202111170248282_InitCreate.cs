@@ -3,7 +3,7 @@ namespace HolidayHelper.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class MandRService : DbMigration
+    public partial class InitCreate : DbMigration
     {
         public override void Up()
         {
@@ -12,18 +12,28 @@ namespace HolidayHelper.Data.Migrations
                 c => new
                     {
                         GiftIdeaId = c.Int(nullable: false, identity: true),
-                        RecipientId = c.Int(nullable: false),
-                        Product = c.String(),
+                        OwnerId = c.Guid(nullable: false),
+                        Product = c.String(nullable: false),
                         Price = c.Double(nullable: false),
                         Location = c.String(),
                         WebsiteLink = c.String(),
-                        GiftReminder_GiftReminderId = c.Int(),
                     })
-                .PrimaryKey(t => t.GiftIdeaId)
+                .PrimaryKey(t => t.GiftIdeaId);
+            
+            CreateTable(
+                "dbo.GiftReminder",
+                c => new
+                    {
+                        GiftReminderId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
+                        RecipientId = c.Int(nullable: false),
+                        Occasion = c.String(),
+                        CreatedDate = c.DateTime(),
+                        GiftNeededBy = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.GiftReminderId)
                 .ForeignKey("dbo.Recipient", t => t.RecipientId, cascadeDelete: true)
-                .ForeignKey("dbo.GiftReminder", t => t.GiftReminder_GiftReminderId)
-                .Index(t => t.RecipientId)
-                .Index(t => t.GiftReminder_GiftReminderId);
+                .Index(t => t.RecipientId);
             
             CreateTable(
                 "dbo.Recipient",
@@ -38,20 +48,6 @@ namespace HolidayHelper.Data.Migrations
                         BirthDay = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.RecipientId);
-            
-            CreateTable(
-                "dbo.GiftReminder",
-                c => new
-                    {
-                        GiftReminderId = c.Int(nullable: false, identity: true),
-                        RecipientId = c.Int(nullable: false),
-                        Occasion = c.String(),
-                        CreatedDate = c.DateTime(nullable: false),
-                        GiftNeededBy = c.DateTime(nullable: false),
-                    })
-                .PrimaryKey(t => t.GiftReminderId)
-                .ForeignKey("dbo.Recipient", t => t.RecipientId, cascadeDelete: true)
-                .Index(t => t.RecipientId);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -123,6 +119,19 @@ namespace HolidayHelper.Data.Migrations
                 .ForeignKey("dbo.ApplicationUser", t => t.ApplicationUser_Id)
                 .Index(t => t.ApplicationUser_Id);
             
+            CreateTable(
+                "dbo.GiftReminderGiftIdea",
+                c => new
+                    {
+                        GiftReminder_GiftReminderId = c.Int(nullable: false),
+                        GiftIdea_GiftIdeaId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.GiftReminder_GiftReminderId, t.GiftIdea_GiftIdeaId })
+                .ForeignKey("dbo.GiftReminder", t => t.GiftReminder_GiftReminderId, cascadeDelete: true)
+                .ForeignKey("dbo.GiftIdea", t => t.GiftIdea_GiftIdeaId, cascadeDelete: true)
+                .Index(t => t.GiftReminder_GiftReminderId)
+                .Index(t => t.GiftIdea_GiftIdeaId);
+            
         }
         
         public override void Down()
@@ -132,22 +141,23 @@ namespace HolidayHelper.Data.Migrations
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
             DropForeignKey("dbo.GiftReminder", "RecipientId", "dbo.Recipient");
-            DropForeignKey("dbo.GiftIdea", "GiftReminder_GiftReminderId", "dbo.GiftReminder");
-            DropForeignKey("dbo.GiftIdea", "RecipientId", "dbo.Recipient");
+            DropForeignKey("dbo.GiftReminderGiftIdea", "GiftIdea_GiftIdeaId", "dbo.GiftIdea");
+            DropForeignKey("dbo.GiftReminderGiftIdea", "GiftReminder_GiftReminderId", "dbo.GiftReminder");
+            DropIndex("dbo.GiftReminderGiftIdea", new[] { "GiftIdea_GiftIdeaId" });
+            DropIndex("dbo.GiftReminderGiftIdea", new[] { "GiftReminder_GiftReminderId" });
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
             DropIndex("dbo.GiftReminder", new[] { "RecipientId" });
-            DropIndex("dbo.GiftIdea", new[] { "GiftReminder_GiftReminderId" });
-            DropIndex("dbo.GiftIdea", new[] { "RecipientId" });
+            DropTable("dbo.GiftReminderGiftIdea");
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
-            DropTable("dbo.GiftReminder");
             DropTable("dbo.Recipient");
+            DropTable("dbo.GiftReminder");
             DropTable("dbo.GiftIdea");
         }
     }

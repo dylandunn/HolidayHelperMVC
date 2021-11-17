@@ -7,13 +7,13 @@ namespace HolidayHelper.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class UpdatedDTBA253 : IMigrationMetadata
+    public sealed partial class InitCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatedDTBA253));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202111150311048_UpdatedDTBA253"; }
+            get { return "202111170248282_InitCreate"; }
         }
         
         string IMigrationMetadata.Source
